@@ -33,7 +33,7 @@
 
       // 보편적인 개발자들이 React를 다루는 방법
       const root = document.getElementById("root");
-      const Title = (
+      const Title = () => (
         <h3 
           id="title" 
           onMouseEnter={
@@ -42,7 +42,7 @@
           Hello I'm a title
         </h3>
       );
-      const Button = (
+      const Button = () => (
         <button 
           style={{ 
             backgroundColor: "orangered" 
@@ -53,8 +53,13 @@
           Click Me
         </button>
       );    
-      const container = React.createElement("div", null, [Title, Button]);
-      ReactDOM.createRoot(root).render(container);
+      const Container = (
+        <div>
+          <Title />
+          <Button />
+        </div>
+      );
+      ReactDOM.createRoot(root).render(Container);
     </script>
   </body>
 </html>
