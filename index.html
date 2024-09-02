@@ -9,12 +9,24 @@
     // 어려운 방법으로 React JS Element 만들기
 
     const root = document.getElementById("root");
-    const h3 = React.createElement("h3", {
-      onMouseEnter: () => console.log("Mouse Enter"),
-    }, "Hello I'm a span.");
-    const button = React.createElement("button", {
-      onClick: () => console.log("I'm a click."),
-    }, "Click me");
+    const h3 = React.createElement(
+      "h3", 
+      {
+        id: "title",
+        onMouseEnter: () => console.log("Mouse Enter"),
+      }, 
+      "Hello I'm a span."
+    );
+    const button = React.createElement(
+      "button", 
+      {
+        onClick: () => console.log("I'm a click."),
+        style: {
+          backgroundColor: "orangered",
+        }
+      }, 
+      "Click me"
+    );
     const container = React.createElement("div", null, [h3, button]);
 
     // ReactDOM.createRoot(root).render(span);
