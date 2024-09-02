@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <span>Total Clicks : 0</span>
-    <button id="btn">Click me</button>
-    <script>
-      let counter = 0;
-
-      const button = document.getElementById("btn");
-      const span = document.querySelector("span");
-      
-      function handleClick() {
-        counter = counter + 1;
-        span.innerText = `Total Clicks : ${counter}`;
-      }
-      button.addEventListener("click", handleClick);
-    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   </body>
 </html>
