@@ -32,8 +32,27 @@
 
     // 보편적인 개발자들이 React를 다루는 방법
     const root = document.getElementById("root");
-    const Title = <h3 id="title" onMouseEnter={() => console.log("Mouse Enter")}>Hello I'm a title</h3>;
-    
+    const Title = (
+      <h3 
+        id="title" 
+        onMouseEnter={
+          () => console.log("Mouse Enter")
+        }>
+        Hello I'm a title
+      </h3>
+    );
+    const Button = (
+      <button 
+        style={{ 
+          backgroundColor: "orangered" 
+        }} 
+        onClick={
+          () => console.log("I'm a click")
+        }>
+        Click Me
+      </button>
+    );    
+    const container = React.createElement("div", null, [h3, button]);
     ReactDOM.createRoot(root).render(container);
   </script>
 </html>
