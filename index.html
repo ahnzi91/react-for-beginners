@@ -10,7 +10,9 @@
 
     const root = document.getElementById("root");
     const h3 = React.createElement("h3", null, "Hello I'm a span.");
-    const button = React.createElement("button", null, "Click me");
+    const button = React.createElement("button", {
+      onClick: () => console.log("I'm a click.")
+    }, "Click me");
     const container = React.createElement("div", null, [h3, button]);
 
     // ReactDOM.createRoot(root).render(span);
