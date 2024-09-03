@@ -7,11 +7,18 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-      const root = document.getElementById("root");
+      const root = ReactDOM.createRoot(document.getElementById("root"));
       let counter = 0;
 
       const countUp = () => {
         counter = counter + 1;
+        Render();
+      }
+      
+      const Render = () => {
+        return (
+          root.render(<Container />)
+        )
       }
 
       const Container = () => (
@@ -20,7 +27,8 @@
           <button onClick={countUp}>Click me</button>
         </div>
       );
-      ReactDOM.createRoot(root).render(<Container />);
+
+      Render();
     </script>
   </body>
 </html>
