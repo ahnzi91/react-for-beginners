@@ -4,21 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React for beginner!</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-      function Btn({ text, onClick }) {
+      function Btn({ text, fontSize = 12 }) {
         console.log(text, "was render.");
         return (
           <button
-            onClick={onClick}
             style={{
               backgroundColor: "tomato",
               color: "white",
               padding: "10px 20px",
               border: 0,
               borderRadius: 10,
+              fontSize: fontSize,
             }}
           >
             {text}
@@ -26,7 +27,10 @@
         );
       }
 
-      const MemorizedBtn = React.memo(Btn);
+      Btn.propTypes = {
+        text: PropTypes.string.isRequired,
+        fontSize: PropTypes.number,
+      };
 
       const App = () => {
         const [value, setValue] = React.useState("Save Changes");
@@ -35,8 +39,8 @@
 
         return (
           <div>
-            <MemorizedBtn text={value} onClick={changeValue} />
-            <MemorizedBtn text="Continue" />
+            <Btn text={"Save Changes"} fontSize={18} />
+            <Btn text={"Continue"} />
           </div>
         );
       };
