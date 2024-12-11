@@ -1,30 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+function Hello() {
+  useEffect(() => {
+    console.log("hi :)");
+    // cleanup function
+    return () => console.log("bye :(");
+  }, []);
+  return <h1>hello</h1>;
+}
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyword] = useState("");
-
-  const onClick = () => setCounter((counter) => counter + 1);
-  const onChange = (event) => setKeyword(event.target.value);
-
-  console.log("I run all the time.");
-
-  useEffect(() => {
-    console.log("Call the API...");
-  }, []);
-
-  // keyword가 변할 때에만 실행된다.
-  useEffect(() => {
-    if (keyword !== "" && keyword.length > 5) {
-      console.log("SEARCH FOR", keyword);
-    }
-  }, [keyword]);
+  const [showing, setShowing] = useState(false);
+  const onClick = () => {
+    setShowing((prev) => !prev);
+  };
 
   return (
     <div>
-      <input value={keyword} onChange={onChange} type="text" placeholder="Seacrh here..." />
-      <h1>{counter}</h1>
-      <button onClick={onClick}>Click me!</button>
+      {showing ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </div>
   );
 }
